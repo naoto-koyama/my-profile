@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -25,6 +27,39 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
+        serviceId: "profile-koyama",
+        endpoint: "userinfo",
+        format: 'object',
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
+        serviceId: "profile-koyama",
+        endpoint: "skills",
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
+        serviceId: "profile-koyama",
+        endpoint: "careers",
+      },
+    },
+    {
+      resolve: "gatsby-source-microcms",
+      options: {
+        apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
+        serviceId: "profile-koyama",
+        endpoint: "hobbies",
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
