@@ -30,6 +30,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        data: `@import "./src/assets/scss/foundation/_mixin.scss";`
+      },
+    },
+    {
       resolve: "gatsby-source-microcms",
       options: {
         apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
