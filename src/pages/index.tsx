@@ -6,7 +6,7 @@ import Image from '../components/image'
 import SEO from '../components/seo'
 
 const IndexPage: React.FC = () => (
-  <Layout>
+  <Layout title={'OVERVIEW'}>
     <SEO title="Home" />
     <h1>Hi people</h1>
     <p>Welcome to your new Gatsby site.</p>
