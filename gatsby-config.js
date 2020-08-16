@@ -54,6 +54,7 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-twitter',
     {
       resolve: 'gatsby-source-microcms',
       options: {

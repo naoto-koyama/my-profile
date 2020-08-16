@@ -2143,14 +2143,14 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  microcmsUserinfo?: Maybe<MicrocmsUserinfo>;
-  allMicrocmsUserinfo: MicrocmsUserinfoConnection;
   microcmsHobbies?: Maybe<MicrocmsHobbies>;
   allMicrocmsHobbies: MicrocmsHobbiesConnection;
   microcmsCareers?: Maybe<MicrocmsCareers>;
   allMicrocmsCareers: MicrocmsCareersConnection;
   microcmsSkills?: Maybe<MicrocmsSkills>;
   allMicrocmsSkills: MicrocmsSkillsConnection;
+  microcmsUserinfo?: Maybe<MicrocmsUserinfo>;
+  allMicrocmsUserinfo: MicrocmsUserinfoConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2327,32 +2327,6 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryMicrocmsUserinfoArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  publishedAt?: Maybe<DateQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  role?: Maybe<StringQueryOperatorInput>;
-  birthday?: Maybe<DateQueryOperatorInput>;
-  address?: Maybe<StringQueryOperatorInput>;
-  email?: Maybe<StringQueryOperatorInput>;
-  greetingText?: Maybe<StringQueryOperatorInput>;
-  avatar?: Maybe<MicrocmsUserinfoAvatarFilterInput>;
-};
-
-
-export type QueryAllMicrocmsUserinfoArgs = {
-  filter?: Maybe<MicrocmsUserinfoFilterInput>;
-  sort?: Maybe<MicrocmsUserinfoSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
 export type QueryMicrocmsHobbiesArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2417,6 +2391,32 @@ export type QueryMicrocmsSkillsArgs = {
 export type QueryAllMicrocmsSkillsArgs = {
   filter?: Maybe<MicrocmsSkillsFilterInput>;
   sort?: Maybe<MicrocmsSkillsSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryMicrocmsUserinfoArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  role?: Maybe<StringQueryOperatorInput>;
+  birthday?: Maybe<DateQueryOperatorInput>;
+  address?: Maybe<StringQueryOperatorInput>;
+  email?: Maybe<StringQueryOperatorInput>;
+  greetingText?: Maybe<StringQueryOperatorInput>;
+  avatar?: Maybe<MicrocmsUserinfoAvatarFilterInput>;
+};
+
+
+export type QueryAllMicrocmsUserinfoArgs = {
+  filter?: Maybe<MicrocmsUserinfoFilterInput>;
+  sort?: Maybe<MicrocmsUserinfoSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };

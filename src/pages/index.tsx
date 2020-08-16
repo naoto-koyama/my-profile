@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import { UserInfoQuery } from '../../types/graphql-types'
 import { graphql } from 'gatsby'
 import ProfileText from '../components/profileText'
+import Twitter from '../components/twitter'
 
 type Props = {
   data: UserInfoQuery
@@ -17,6 +18,7 @@ const IndexPage: React.FC<Props> = ({ data }) => (
     <ProfileText
       greetingText={data.allMicrocmsUserinfo.edges[0].node.greetingText}
     ></ProfileText>
+    <Twitter></Twitter>
   </Layout>
 )
 
