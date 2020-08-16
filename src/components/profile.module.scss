@@ -1,0 +1,79 @@
+.profile-info-wrapper {
+  width: 100%;
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  margin: 0 0 60px;
+
+  .profile-info-content {
+    padding: 60px 64px 60px 52px;
+    @include flexbox(nowrap, normal, normal);
+
+    &__avatar {
+      margin: 0 80px 0 0;
+      width: 29.8%;
+
+      img {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__description {
+      margin: 16px auto 0 0;
+      flex: 1;
+      color: #3d4451;
+
+      .balloon-wrapper {
+        margin: 0 0 12px;
+      }
+
+      .name {
+        font-size: 36px;
+        margin: 0 0 8px;
+      }
+
+      .role {
+        font-size: 16px;
+        margin: 0 0 24px;
+      }
+
+      .line {
+        width: 100%;
+        border: 1px solid #dedede;
+        margin: 0 0 24px;
+      }
+
+      .info-list {
+        &__item {
+          vertical-align: middle;
+          margin: 0 0 16px;
+          line-height: 1;
+
+          &:last-child {
+            margin: 0;
+          }
+
+          &__key {
+            display: inline-block;
+            font-size: 12px;
+            width: 100px;
+          }
+
+          &__value {
+            display: inline-block;
+            font-size: 14px;
+            color: #9da0a7;
+          }
+        }
+      }
+    }
+  }
+
+  .profile-sns {
+    height: 100px;
+    background: rgb(232, 103, 107);
+    padding: 40px 25% 0;
+  }
+}

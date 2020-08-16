@@ -1,0 +1,23 @@
+.sns-list {
+  @include flexbox(nowrap, center, space-between);
+  padding: 0;
+  margin: 0;
+  li, a {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .white {
+    color: rgb(255, 255, 255);
+  }
+
+  .gray {
+    color: #d7d7d7;
+  }
+}

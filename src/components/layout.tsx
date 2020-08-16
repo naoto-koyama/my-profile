@@ -1,9 +1,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import Header from './header'
-import { Link } from 'gatsby'
-import { FaGithub, FaTwitter, FaFacebook, FaSpeakerDeck } from 'react-icons/fa'
-
+import SnsList from './sns-list'
 const styles = require('./layout.module.scss')
 
 type Props = {
@@ -18,28 +16,7 @@ const Layout: React.FC<Props> = ({ children, title }: Props) => {
       <div className={styles.lWrapper}>
         <main className={styles.lMain}>{children}</main>
         <footer className={styles.lFooter}>
-          <ul>
-            <li>
-              <Link to="https://github.com/naoto-koyama">
-                <FaGithub></FaGithub>
-              </Link>
-            </li>
-            <li>
-              <Link to="https://twitter.com/naoto324">
-                <FaTwitter></FaTwitter>
-              </Link>
-            </li>
-            <li>
-              <Link to="https://www.facebook.com/profile.php?id=100032675406473">
-                <FaFacebook></FaFacebook>
-              </Link>
-            </li>
-            <li>
-              <Link to="https://speakerdeck.com/naotokoyama">
-                <FaSpeakerDeck></FaSpeakerDeck>
-              </Link>
-            </li>
-          </ul>
+          <SnsList color="gray"></SnsList>
         </footer>
       </div>
     </>

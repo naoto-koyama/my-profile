@@ -2143,14 +2143,14 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  microcmsUserinfo?: Maybe<MicrocmsUserinfo>;
+  allMicrocmsUserinfo: MicrocmsUserinfoConnection;
   microcmsHobbies?: Maybe<MicrocmsHobbies>;
   allMicrocmsHobbies: MicrocmsHobbiesConnection;
   microcmsCareers?: Maybe<MicrocmsCareers>;
   allMicrocmsCareers: MicrocmsCareersConnection;
   microcmsSkills?: Maybe<MicrocmsSkills>;
   allMicrocmsSkills: MicrocmsSkillsConnection;
-  microcmsUserinfo?: Maybe<MicrocmsUserinfo>;
-  allMicrocmsUserinfo: MicrocmsUserinfoConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
   allSiteBuildMetadata: SiteBuildMetadataConnection;
   sitePlugin?: Maybe<SitePlugin>;
@@ -2327,6 +2327,32 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryMicrocmsUserinfoArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  name?: Maybe<StringQueryOperatorInput>;
+  role?: Maybe<StringQueryOperatorInput>;
+  birthday?: Maybe<DateQueryOperatorInput>;
+  address?: Maybe<StringQueryOperatorInput>;
+  email?: Maybe<StringQueryOperatorInput>;
+  greetingText?: Maybe<StringQueryOperatorInput>;
+  avatar?: Maybe<MicrocmsUserinfoAvatarFilterInput>;
+};
+
+
+export type QueryAllMicrocmsUserinfoArgs = {
+  filter?: Maybe<MicrocmsUserinfoFilterInput>;
+  sort?: Maybe<MicrocmsUserinfoSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryMicrocmsHobbiesArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2391,32 +2417,6 @@ export type QueryMicrocmsSkillsArgs = {
 export type QueryAllMicrocmsSkillsArgs = {
   filter?: Maybe<MicrocmsSkillsFilterInput>;
   sort?: Maybe<MicrocmsSkillsSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryMicrocmsUserinfoArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  publishedAt?: Maybe<DateQueryOperatorInput>;
-  name?: Maybe<StringQueryOperatorInput>;
-  role?: Maybe<StringQueryOperatorInput>;
-  birthday?: Maybe<DateQueryOperatorInput>;
-  address?: Maybe<StringQueryOperatorInput>;
-  email?: Maybe<StringQueryOperatorInput>;
-  greetingText?: Maybe<StringQueryOperatorInput>;
-  avatar?: Maybe<MicrocmsUserinfoAvatarFilterInput>;
-};
-
-
-export type QueryAllMicrocmsUserinfoArgs = {
-  filter?: Maybe<MicrocmsUserinfoFilterInput>;
-  sort?: Maybe<MicrocmsUserinfoSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3404,12 +3404,31 @@ export type StringQueryOperatorInput = {
 export type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_1_Query = { placeholderImage?: Maybe<{ childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+export type Unnamed_1_Query = { images: { edges: Array<{ node: (
+        Pick<File, 'relativePath' | 'name'>
+        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
+      ) }> } };
 
 export type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Unnamed_2_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+export type Unnamed_2_Query = { images: { edges: Array<{ node: (
+        Pick<File, 'relativePath' | 'name'>
+        & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
+      ) }> } };
+
+export type UserInfoQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type UserInfoQuery = { allMicrocmsUserinfo: { edges: Array<{ node: (
+        Pick<MicrocmsUserinfo, 'address' | 'birthday' | 'createdAt' | 'email' | 'greetingText' | 'id' | 'name' | 'role' | 'updatedAt'>
+        & { avatar?: Maybe<Pick<MicrocmsUserinfoAvatar, 'url'>> }
+      ) }> } };
+
+export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

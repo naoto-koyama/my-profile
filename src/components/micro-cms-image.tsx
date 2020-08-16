@@ -3,11 +3,11 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
 type Props = {
-  filename: string
+  url?: string | null
   alt: string
 }
 
-const Image: React.FC<Props> = ({ filename, alt }) => {
+const MicroCmsImage: React.FC<Props> = ({ url, alt }) => {
   const data = useStaticQuery(graphql`
     query {
       images: allFile {
@@ -26,17 +26,14 @@ const Image: React.FC<Props> = ({ filename, alt }) => {
     }
   `)
 
-  const image = data.images.edges.find(n =>
-    n.node.relativePath.includes(filename)
-  )
   const dummyImage = data.images.edges.find(n =>
     n.node.relativePath.includes('dummy.png')
   )
-  return image ? (
-    <Img fluid={image.node.childImageSharp.fluid} alt={alt} />
+  return url ? (
+    <img src={url} alt={alt} />
   ) : (
     <Img fluid={dummyImage.node.childImageSharp.fluid} alt={alt} />
   )
 }
 
-export default Image
+export default MicroCmsImage

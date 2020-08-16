@@ -1,0 +1,18 @@
+.balloon {
+  position: relative;
+  display: inline-block;
+  padding: 4px 12px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  background: rgb(232, 103, 107);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin: 0 0 0 -40%;
+    border: 8px solid transparent;
+    border-top: 8px solid rgb(232, 103, 107);
+  }
+}

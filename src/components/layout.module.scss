@@ -7,7 +7,7 @@
 
 .l-main {
   width: 100%;
-  max-width: 940px;
+  max-width: 972px;
   margin: 120px auto 0;
   padding: 0 16px;
   flex: 1;
@@ -17,21 +17,4 @@
   margin: 0 auto 40px;
   max-width: 520px;
   width: 50%;
-
-  ul {
-    @include flexbox(nowrap, center, space-between);
-    padding: 0;
-    margin: 0;
-    li, a {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-    }
-
-    svg {
-      width: 20px;
-      height: 20px;
-      color: #d7d7d7;
-    }
-  }
 }
