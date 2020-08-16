@@ -3417,6 +3417,11 @@ export type Unnamed_2_Query = { images: { edges: Array<{ node: (
         & { childImageSharp?: Maybe<{ fluid?: Maybe<GatsbyImageSharpFluidFragment> }> }
       ) }> } };
 
+export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
 export type UserInfoQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3424,11 +3429,6 @@ export type UserInfoQuery = { allMicrocmsUserinfo: { edges: Array<{ node: (
         Pick<MicrocmsUserinfo, 'address' | 'birthday' | 'createdAt' | 'email' | 'greetingText' | 'id' | 'name' | 'role' | 'updatedAt'>
         & { avatar?: Maybe<Pick<MicrocmsUserinfoAvatar, 'url'>> }
       ) }> } };
-
-export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

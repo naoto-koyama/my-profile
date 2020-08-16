@@ -1,36 +1,15 @@
 import * as React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
 import { UserInfoQuery } from '../../types/graphql-types'
 import MicroCmsImage from './micro-cms-image'
 import Balloon from './balloon'
 import SnsList from './sns-list'
 const styles = require('./profile.module.scss')
 
-const Profile: React.FC = () => {
-  const data: UserInfoQuery = useStaticQuery(
-    graphql`
-      query UserInfo {
-        allMicrocmsUserinfo {
-          edges {
-            node {
-              address
-              avatar {
-                url
-              }
-              birthday
-              createdAt
-              email
-              greetingText
-              id
-              name
-              role
-              updatedAt
-            }
-          }
-        }
-      }
-    `
-  )
+type Props = {
+  data: UserInfoQuery
+}
+
+const Profile: React.FC<Props> = ({ data }) => {
   const profileData = data.allMicrocmsUserinfo.edges[0].node
   const calculateAge = (birthday: Date): number => {
     birthday = new Date(birthday)
