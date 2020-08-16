@@ -1301,9 +1301,9 @@ export type MicrocmsCareers = Node & {
   careerName?: Maybe<Scalars['String']>;
   role?: Maybe<Scalars['String']>;
   fromDate?: Maybe<Scalars['Date']>;
+  toDate?: Maybe<Scalars['Date']>;
   description?: Maybe<Scalars['String']>;
   careersId?: Maybe<Scalars['String']>;
-  toDate?: Maybe<Scalars['Date']>;
 };
 
 
@@ -1466,9 +1466,9 @@ export type MicrocmsCareersFieldsEnum =
   | 'careerName'
   | 'role'
   | 'fromDate'
+  | 'toDate'
   | 'description'
-  | 'careersId'
-  | 'toDate';
+  | 'careersId';
 
 export type MicrocmsCareersFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
@@ -1481,9 +1481,9 @@ export type MicrocmsCareersFilterInput = {
   careerName?: Maybe<StringQueryOperatorInput>;
   role?: Maybe<StringQueryOperatorInput>;
   fromDate?: Maybe<DateQueryOperatorInput>;
+  toDate?: Maybe<DateQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   careersId?: Maybe<StringQueryOperatorInput>;
-  toDate?: Maybe<DateQueryOperatorInput>;
 };
 
 export type MicrocmsCareersGroupConnection = {
@@ -1697,6 +1697,8 @@ export type MicrocmsSkills = Node & {
   updatedAt?: Maybe<Scalars['Date']>;
   publishedAt?: Maybe<Scalars['Date']>;
   skillName?: Maybe<Scalars['String']>;
+  skillLevel?: Maybe<Scalars['Int']>;
+  skillDetail?: Maybe<Scalars['String']>;
   skillsId?: Maybe<Scalars['String']>;
 };
 
@@ -1842,6 +1844,8 @@ export type MicrocmsSkillsFieldsEnum =
   | 'updatedAt'
   | 'publishedAt'
   | 'skillName'
+  | 'skillLevel'
+  | 'skillDetail'
   | 'skillsId';
 
 export type MicrocmsSkillsFilterInput = {
@@ -1853,6 +1857,8 @@ export type MicrocmsSkillsFilterInput = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   skillName?: Maybe<StringQueryOperatorInput>;
+  skillLevel?: Maybe<IntQueryOperatorInput>;
+  skillDetail?: Maybe<StringQueryOperatorInput>;
   skillsId?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2143,12 +2149,12 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
+  microcmsSkills?: Maybe<MicrocmsSkills>;
+  allMicrocmsSkills: MicrocmsSkillsConnection;
   microcmsHobbies?: Maybe<MicrocmsHobbies>;
   allMicrocmsHobbies: MicrocmsHobbiesConnection;
   microcmsCareers?: Maybe<MicrocmsCareers>;
   allMicrocmsCareers: MicrocmsCareersConnection;
-  microcmsSkills?: Maybe<MicrocmsSkills>;
-  allMicrocmsSkills: MicrocmsSkillsConnection;
   microcmsUserinfo?: Maybe<MicrocmsUserinfo>;
   allMicrocmsUserinfo: MicrocmsUserinfoConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -2327,6 +2333,29 @@ export type QueryAllImageSharpArgs = {
 };
 
 
+export type QueryMicrocmsSkillsArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  skillName?: Maybe<StringQueryOperatorInput>;
+  skillLevel?: Maybe<IntQueryOperatorInput>;
+  skillDetail?: Maybe<StringQueryOperatorInput>;
+  skillsId?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllMicrocmsSkillsArgs = {
+  filter?: Maybe<MicrocmsSkillsFilterInput>;
+  sort?: Maybe<MicrocmsSkillsSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
 export type QueryMicrocmsHobbiesArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
@@ -2361,36 +2390,15 @@ export type QueryMicrocmsCareersArgs = {
   careerName?: Maybe<StringQueryOperatorInput>;
   role?: Maybe<StringQueryOperatorInput>;
   fromDate?: Maybe<DateQueryOperatorInput>;
+  toDate?: Maybe<DateQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   careersId?: Maybe<StringQueryOperatorInput>;
-  toDate?: Maybe<DateQueryOperatorInput>;
 };
 
 
 export type QueryAllMicrocmsCareersArgs = {
   filter?: Maybe<MicrocmsCareersFilterInput>;
   sort?: Maybe<MicrocmsCareersSortInput>;
-  skip?: Maybe<Scalars['Int']>;
-  limit?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryMicrocmsSkillsArgs = {
-  id?: Maybe<StringQueryOperatorInput>;
-  parent?: Maybe<NodeFilterInput>;
-  children?: Maybe<NodeFilterListInput>;
-  internal?: Maybe<InternalFilterInput>;
-  createdAt?: Maybe<DateQueryOperatorInput>;
-  updatedAt?: Maybe<DateQueryOperatorInput>;
-  publishedAt?: Maybe<DateQueryOperatorInput>;
-  skillName?: Maybe<StringQueryOperatorInput>;
-  skillsId?: Maybe<StringQueryOperatorInput>;
-};
-
-
-export type QueryAllMicrocmsSkillsArgs = {
-  filter?: Maybe<MicrocmsSkillsFilterInput>;
-  sort?: Maybe<MicrocmsSkillsSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3422,13 +3430,13 @@ export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
-export type UserInfoQueryVariables = Exact<{ [key: string]: never; }>;
+export type OverviewQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UserInfoQuery = { allMicrocmsUserinfo: { edges: Array<{ node: (
-        Pick<MicrocmsUserinfo, 'address' | 'birthday' | 'createdAt' | 'email' | 'greetingText' | 'id' | 'name' | 'role' | 'updatedAt'>
+export type OverviewQuery = { UserInfo: { edges: Array<{ node: (
+        Pick<MicrocmsUserinfo, 'id' | 'name' | 'address' | 'birthday' | 'email' | 'greetingText' | 'role'>
         & { avatar?: Maybe<Pick<MicrocmsUserinfoAvatar, 'url'>> }
-      ) }> } };
+      ) }> }, Skills: { edges: Array<{ node: Pick<MicrocmsSkills, 'id' | 'skillName' | 'skillLevel' | 'skillDetail'> }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

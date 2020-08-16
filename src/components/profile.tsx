@@ -1,16 +1,15 @@
 import * as React from 'react'
-import { UserInfoQuery } from '../../types/graphql-types'
 import MicroCmsImage from './micro-cms-image'
 import Balloon from './balloon'
 import SnsList from './sns-list'
+import { UserinfoType } from '../../types/user-info-type'
 const styles = require('./profile.module.scss')
 
 type Props = {
-  data: UserInfoQuery
+  profileData: UserinfoType
 }
 
-const Profile: React.FC<Props> = ({ data }) => {
-  const profileData = data.allMicrocmsUserinfo.edges[0].node
+const Profile: React.FC<Props> = ({ profileData }) => {
   const calculateAge = (birthday: Date): number => {
     birthday = new Date(birthday)
     const today = new Date()

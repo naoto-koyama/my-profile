@@ -1,0 +1,31 @@
+.skill-card {
+  display: inline-block;
+
+  .skill-name {
+    font-size: 20px;
+    text-align: center;
+    color: #333;
+    margin: 0 0 16px;
+  }
+
+  .skill-level-list {
+    @include flexbox;
+    &__item {
+      width: 28px;
+      height: 28px;
+      margin: 0 20px 0 0;
+      background: #e8676b;
+      border: 1px solid #707070;
+      border-radius: 50%;
+
+      &.not-have {
+        opacity: 0.5;
+      }
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}
+
