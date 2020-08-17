@@ -45,3 +45,96 @@
     right: 40px;
   }
 }
+
+.career-list {
+  width: 100%;
+  position: relative;
+  margin: 0 0 68px;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    border-left: 8px solid rgb(232, 103, 107);
+    opacity: 0.25;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  &__item {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #e8676b;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+
+    .careerCardWrapper {
+      width: 39.5%;
+      display: inline-block;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -12px;
+        border: 12px solid transparent;
+        z-index: 2;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        margin-top: -14px;
+        border: 14px solid transparent;
+        z-index: 1;
+      }
+    }
+
+    &.odd {
+      .careerCardWrapper {
+        margin: 0 0 0 7%;
+
+        &:before {
+          right: -23px;
+          border-left: 12px solid #FFF;
+        }
+
+        &:after {
+          right: -28px;
+          border-left: 14px solid rgb(224,224,224);
+        }
+      }
+    }
+
+    &.even {
+      text-align: right;
+      .careerCardWrapper {
+        margin: 0 7% 0 0;
+        text-align: left;
+
+        &:before {
+          left: -23px;
+          border-right: 12px solid #FFF;
+        }
+
+        &:after {
+          left: -28px;
+          border-right: 14px solid rgb(224,224,224);
+        }
+      }
+    }
+  }
+}

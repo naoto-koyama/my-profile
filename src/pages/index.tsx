@@ -7,6 +7,7 @@ import { OverviewQuery } from '../../types/graphql-types'
 import ProfileText from '../components/profileText'
 import Twitter from '../components/twitter'
 import SkillCard from '../components/skill-card'
+import CareerCard from '../components/career-card'
 const styles = require('./index.module.scss')
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 const IndexPage: React.FC<Props> = ({ data }) => {
   const userInfo = data.UserInfo.edges[0].node
   const skills = data.Skills.edges.map(edge => edge.node).reverse()
+  const careers = data.Careers.edges.map(edge => edge.node).reverse()
   return (
     <Layout title={'OVERVIEW'}>
       <SEO title="OVERVIEW" />
@@ -40,6 +42,23 @@ const IndexPage: React.FC<Props> = ({ data }) => {
           And More
         </Link>
       </div>
+      <h2 className={styles.title}>Career</h2>
+      <ul className={styles.careerList}>
+        {careers.map((career, index) => {
+          return (
+            <li
+              className={`${styles.careerList__item} ${
+                (index + 1) % 2 === 0 ? styles.even : styles.odd
+              }`}
+              key={career.id}
+            >
+              <div className={styles.careerCardWrapper}>
+                <CareerCard career={career}></CareerCard>
+              </div>
+            </li>
+          )
+        })}
+      </ul>
     </Layout>
   )
 }
@@ -71,6 +90,18 @@ export const query = graphql`
           skillName
           skillLevel
           skillDetail
+        }
+      }
+    }
+    Careers: allMicrocmsCareers {
+      edges {
+        node {
+          id
+          fromDate
+          toDate
+          careerName
+          role
+          description
         }
       }
     }

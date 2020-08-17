@@ -3436,7 +3436,7 @@ export type OverviewQueryVariables = Exact<{ [key: string]: never; }>;
 export type OverviewQuery = { UserInfo: { edges: Array<{ node: (
         Pick<MicrocmsUserinfo, 'id' | 'name' | 'address' | 'birthday' | 'email' | 'greetingText' | 'role'>
         & { avatar?: Maybe<Pick<MicrocmsUserinfoAvatar, 'url'>> }
-      ) }> }, Skills: { edges: Array<{ node: Pick<MicrocmsSkills, 'id' | 'skillName' | 'skillLevel' | 'skillDetail'> }> } };
+      ) }> }, Skills: { edges: Array<{ node: Pick<MicrocmsSkills, 'id' | 'skillName' | 'skillLevel' | 'skillDetail'> }> }, Careers: { edges: Array<{ node: Pick<MicrocmsCareers, 'id' | 'fromDate' | 'toDate' | 'careerName' | 'role' | 'description'> }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
