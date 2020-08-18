@@ -1511,6 +1511,7 @@ export type MicrocmsHobbies = Node & {
   hobbyName?: Maybe<Scalars['String']>;
   description?: Maybe<Scalars['String']>;
   favorite?: Maybe<Scalars['String']>;
+  images?: Maybe<Array<Maybe<MicrocmsHobbiesImages>>>;
   hobbiesId?: Maybe<Scalars['String']>;
 };
 
@@ -1658,6 +1659,12 @@ export type MicrocmsHobbiesFieldsEnum =
   | 'hobbyName'
   | 'description'
   | 'favorite'
+  | 'images'
+  | 'images___id'
+  | 'images___createdAt'
+  | 'images___updatedAt'
+  | 'images___publishedAt'
+  | 'images___image___url'
   | 'hobbiesId';
 
 export type MicrocmsHobbiesFilterInput = {
@@ -1671,6 +1678,7 @@ export type MicrocmsHobbiesFilterInput = {
   hobbyName?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   favorite?: Maybe<StringQueryOperatorInput>;
+  images?: Maybe<MicrocmsHobbiesImagesFilterListInput>;
   hobbiesId?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -1681,6 +1689,58 @@ export type MicrocmsHobbiesGroupConnection = {
   pageInfo: PageInfo;
   field: Scalars['String'];
   fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsHobbiesImages = {
+  id?: Maybe<Scalars['String']>;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  publishedAt?: Maybe<Scalars['Date']>;
+  image?: Maybe<MicrocmsHobbiesImagesImage>;
+};
+
+
+export type MicrocmsHobbiesImagesCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsHobbiesImagesUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsHobbiesImagesPublishedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsHobbiesImagesFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  image?: Maybe<MicrocmsHobbiesImagesImageFilterInput>;
+};
+
+export type MicrocmsHobbiesImagesFilterListInput = {
+  elemMatch?: Maybe<MicrocmsHobbiesImagesFilterInput>;
+};
+
+export type MicrocmsHobbiesImagesImage = {
+  url?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsHobbiesImagesImageFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MicrocmsHobbiesSortInput = {
@@ -2367,6 +2427,7 @@ export type QueryMicrocmsHobbiesArgs = {
   hobbyName?: Maybe<StringQueryOperatorInput>;
   description?: Maybe<StringQueryOperatorInput>;
   favorite?: Maybe<StringQueryOperatorInput>;
+  images?: Maybe<MicrocmsHobbiesImagesFilterListInput>;
   hobbiesId?: Maybe<StringQueryOperatorInput>;
 };
 
@@ -3429,6 +3490,20 @@ export type Unnamed_3_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type Unnamed_3_Query = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
+
+export type AboutQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AboutQuery = { UserInfo: { edges: Array<{ node: (
+        Pick<MicrocmsUserinfo, 'id' | 'name' | 'address' | 'birthday' | 'email' | 'greetingText' | 'role'>
+        & { avatar?: Maybe<Pick<MicrocmsUserinfoAvatar, 'url'>> }
+      ) }> }, Hobbies: { edges: Array<{ node: (
+        Pick<MicrocmsHobbies, 'id' | 'hobbyName' | 'description' | 'favorite'>
+        & { images?: Maybe<Array<Maybe<(
+          Pick<MicrocmsHobbiesImages, 'id'>
+          & { image?: Maybe<Pick<MicrocmsHobbiesImagesImage, 'url'>> }
+        )>>> }
+      ) }> } };
 
 export type OverviewQueryVariables = Exact<{ [key: string]: never; }>;
 
