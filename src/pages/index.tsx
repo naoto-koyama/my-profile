@@ -30,10 +30,7 @@ const IndexPage: React.FC<Props> = ({ data }) => {
           {skills.map(skill => {
             return (
               <li className={styles.skillsList__item} key={skill.id}>
-                <SkillCard
-                  skillName={skill.skillName}
-                  skillLevel={skill.skillLevel}
-                ></SkillCard>
+                <SkillCard skill={skill}></SkillCard>
               </li>
             )
           })}

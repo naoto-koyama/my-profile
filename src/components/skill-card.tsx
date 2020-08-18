@@ -1,14 +1,14 @@
 import * as React from 'react'
+import { SkillType } from '../../types/skill-type'
 const styles = require('./skill-card.module.scss')
 
 type Props = {
-  skillName: string | null | undefined
-  skillLevel: number | null | undefined
+  skill: SkillType
 }
 
-const SkillCard: React.FC<Props> = (props: Props) => {
-  const skillName = props.skillName
-  const skillLevel = props.skillLevel || 0
+const SkillCard: React.FC<Props> = ({ skill }) => {
+  const skillName = skill.skillName
+  const skillLevel = skill.skillLevel || 0
   return (
     <div className={styles.skillCard}>
       <h3 className={styles.skillName}>{skillName}</h3>
