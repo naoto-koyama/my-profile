@@ -11,15 +11,20 @@ type Props = {
 
 const Layout: React.FC<Props> = ({ children, title }: Props) => {
   return (
-    <>
+    <div className={styles.layoutWrapper}>
       <Header title={title} />
-      <div className={styles.lWrapper}>
-        <main className={styles.lMain}>{children}</main>
-        <footer className={styles.lFooter}>
+      {title === 'OVERVIEW' ? (
+        <div className={styles.profileCoverImage}></div>
+      ) : (
+        ''
+      )}
+      <div className={styles.mainWrapper}>
+        <main className={styles.main}>{children}</main>
+        <footer className={styles.footer}>
           <SnsList color="gray"></SnsList>
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 

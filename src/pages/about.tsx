@@ -16,7 +16,6 @@ type Props = {
 const AboutPage: React.FC<Props> = ({ data }) => {
   const userInfo = data.UserInfo.edges[0].node
   const Hobbies = data.Hobbies.edges.map(edge => edge.node).reverse()
-  console.log(Hobbies)
   return (
     <Layout title={'ABOUT'}>
       <SEO title="ABOUT" />

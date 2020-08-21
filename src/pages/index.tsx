@@ -19,9 +19,9 @@ const IndexPage: React.FC<Props> = ({ data }) => {
   const skills = data.Skills.edges.map(edge => edge.node).reverse()
   const careers = data.Careers.edges.map(edge => edge.node).reverse()
   return (
-    <Layout title={'OVERVIEW'}>
+    <Layout title="OVERVIEW">
       <SEO title="OVERVIEW" />
-      <Profile profileData={userInfo}></Profile>
+      <Profile profileData={userInfo} isPositionRelative={true}></Profile>
       <ProfileText greetingText={userInfo.greetingText}></ProfileText>
       <Twitter></Twitter>
       <h2 className={styles.title}>SKILLS</h2>

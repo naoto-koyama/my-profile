@@ -5,6 +5,10 @@
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
   margin: 0 0 60px;
 
+  &.position-relative {
+    position: relative;
+  }
+
   .profile-info-content {
     padding: 60px 64px 60px 52px;
     @include flexbox(nowrap, normal, normal);

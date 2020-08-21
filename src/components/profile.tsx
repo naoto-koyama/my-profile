@@ -7,9 +7,10 @@ const styles = require('./profile.module.scss')
 
 type Props = {
   profileData: UserinfoType
+  isPositionRelative?: boolean
 }
 
-const Profile: React.FC<Props> = ({ profileData }) => {
+const Profile: React.FC<Props> = ({ profileData, isPositionRelative }) => {
   const calculateAge = (birthday: Date): number => {
     birthday = new Date(birthday)
     const today = new Date()
@@ -21,8 +22,14 @@ const Profile: React.FC<Props> = ({ profileData }) => {
     )
     return today < birthdayOfThisYear ? yearDiff - 1 : yearDiff
   }
+
+  console.log(styles)
   return (
-    <div className={styles.profileInfoWrapper}>
+    <div
+      className={`${styles.profileInfoWrapper} ${
+        isPositionRelative ? styles.positionRelative : ''
+      }`}
+    >
       <div className={styles.profileInfoContent}>
         <div className={styles.profileInfoContent__avatar}>
           {/* TODO: HireMeの画像をif文で差し込む */}
