@@ -44,11 +44,18 @@
 
     a {
       font-size: 14px;
-      color: #3d4451;
+      color: rgba(0, 0, 0, 0.7);
+      &:hover {
+        color: rgba(0, 0, 0, 1);
+      }
     }
 
     &.is-position-top a {
       color: rgba(255, 255, 255, 0.7);
+
+      &:hover {
+        color: rgba(255, 255, 255, 1);
+      }
     }
 
     &:last-child {

@@ -43,10 +43,14 @@
 
   .skill-detail-link {
     font-size: 16px;
-    color: #e8676b;
+    color: rgba(232, 103, 107, 1);
     position: absolute;
     bottom: 24px;
     right: 40px;
+
+    &:hover {
+      border-bottom: #e8676b solid 1px;
+    }
   }
 }
 
