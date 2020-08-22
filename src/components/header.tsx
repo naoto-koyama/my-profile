@@ -11,8 +11,7 @@ type Props = {
 const Header: React.FC<Props> = ({ title }) => {
   const [isTopScroll, setIsTopScroll] = useState(title === 'OVERVIEW')
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-
-  if (title === 'OVERVIEW') {
+  if (title === 'OVERVIEW' && typeof window !== 'undefined') {
     window.addEventListener('scroll', (): void => {
       setIsTopScroll(window.scrollY === 0)
     })
