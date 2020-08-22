@@ -16,8 +16,8 @@ type Props = {
 
 const IndexPage: React.FC<Props> = ({ data }) => {
   const userInfo = data.UserInfo.edges[0].node
-  const skills = data.Skills.edges.map(edge => edge.node).reverse()
-  const careers = data.Careers.edges.map(edge => edge.node).reverse()
+  const skills = data.Skills.edges.map(edge => edge.node)
+  const careers = data.Careers.edges.map(edge => edge.node)
   return (
     <Layout title="OVERVIEW">
       <SEO title="OVERVIEW" />
@@ -80,7 +80,7 @@ export const query = graphql`
         }
       }
     }
-    Skills: allMicrocmsSkills {
+    Skills: allMicrocmsSkills(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           id
@@ -90,7 +90,7 @@ export const query = graphql`
         }
       }
     }
-    Careers: allMicrocmsCareers {
+    Careers: allMicrocmsCareers(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           id

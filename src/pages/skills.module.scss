@@ -1,0 +1,61 @@
+.title {
+  font-size: 28px;
+  color: #333;
+  text-align: center;
+  margin: 0 0 32px;
+}
+
+.skill-list {
+  width: 100%;
+  margin: 0 0 32px;
+
+  &__item {
+    margin: 0 0 32px;
+    padding: 36px 36px 36px 60px;
+    @include flexbox(nowrap, center, normal);
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    &:last-child {
+      margin: 0;
+    }
+
+    .skill-card {
+      display: inline-block;
+      margin: 0 100px 0 0;
+    }
+
+    .skill-detail {
+      white-space:pre-wrap;
+      font-family: Futura;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1.5em;
+      color: #333;
+    }
+  }
+}
+
+.other-skill-list {
+  margin: 0 0 68px;
+  @include flexbox(wrap, center, normal);
+
+  &__item {
+    margin: 0 20px 20px 0;
+    padding: 16px 44px;
+    height: 60px;
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    span {
+      font-family: Futura;
+      font-weight: 500;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
+}

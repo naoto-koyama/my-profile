@@ -15,7 +15,7 @@ type Props = {
 
 const AboutPage: React.FC<Props> = ({ data }) => {
   const userInfo = data.UserInfo.edges[0].node
-  const Hobbies = data.Hobbies.edges.map(edge => edge.node).reverse()
+  const Hobbies = data.Hobbies.edges.map(edge => edge.node)
   return (
     <Layout title={'ABOUT'}>
       <SEO title="ABOUT" />
@@ -56,7 +56,7 @@ export const query = graphql`
         }
       }
     }
-    Hobbies: allMicrocmsHobbies {
+    Hobbies: allMicrocmsHobbies(sort: { fields: [createdAt], order: ASC }) {
       edges {
         node {
           id

@@ -88,8 +88,14 @@ module.exports = {
         endpoint: 'hobbies',
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: 'gatsby-source-microcms',
+      options: {
+        apiKey: process.env.GATSBY_MICRO_CMS_API_KEY,
+        serviceId: 'profile-koyama',
+        endpoint: 'otherskills',
+        readAll: true,
+      },
+    },
   ],
 }

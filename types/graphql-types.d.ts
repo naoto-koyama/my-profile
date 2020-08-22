@@ -1748,6 +1748,188 @@ export type MicrocmsHobbiesSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
+export type MicrocmsOtherskills = Node & {
+  id: Scalars['ID'];
+  parent?: Maybe<Node>;
+  children: Array<Node>;
+  internal: Internal;
+  createdAt?: Maybe<Scalars['Date']>;
+  updatedAt?: Maybe<Scalars['Date']>;
+  publishedAt?: Maybe<Scalars['Date']>;
+  skillName?: Maybe<Scalars['String']>;
+  otherskillsId?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsOtherskillsCreatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsOtherskillsUpdatedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type MicrocmsOtherskillsPublishedAtArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsOtherskillsConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MicrocmsOtherskillsEdge>;
+  nodes: Array<MicrocmsOtherskills>;
+  pageInfo: PageInfo;
+  distinct: Array<Scalars['String']>;
+  group: Array<MicrocmsOtherskillsGroupConnection>;
+};
+
+
+export type MicrocmsOtherskillsConnectionDistinctArgs = {
+  field: MicrocmsOtherskillsFieldsEnum;
+};
+
+
+export type MicrocmsOtherskillsConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+  field: MicrocmsOtherskillsFieldsEnum;
+};
+
+export type MicrocmsOtherskillsEdge = {
+  next?: Maybe<MicrocmsOtherskills>;
+  node: MicrocmsOtherskills;
+  previous?: Maybe<MicrocmsOtherskills>;
+};
+
+export type MicrocmsOtherskillsFieldsEnum = 
+  | 'id'
+  | 'parent___id'
+  | 'parent___parent___id'
+  | 'parent___parent___parent___id'
+  | 'parent___parent___parent___children'
+  | 'parent___parent___children'
+  | 'parent___parent___children___id'
+  | 'parent___parent___children___children'
+  | 'parent___parent___internal___content'
+  | 'parent___parent___internal___contentDigest'
+  | 'parent___parent___internal___description'
+  | 'parent___parent___internal___fieldOwners'
+  | 'parent___parent___internal___ignoreType'
+  | 'parent___parent___internal___mediaType'
+  | 'parent___parent___internal___owner'
+  | 'parent___parent___internal___type'
+  | 'parent___children'
+  | 'parent___children___id'
+  | 'parent___children___parent___id'
+  | 'parent___children___parent___children'
+  | 'parent___children___children'
+  | 'parent___children___children___id'
+  | 'parent___children___children___children'
+  | 'parent___children___internal___content'
+  | 'parent___children___internal___contentDigest'
+  | 'parent___children___internal___description'
+  | 'parent___children___internal___fieldOwners'
+  | 'parent___children___internal___ignoreType'
+  | 'parent___children___internal___mediaType'
+  | 'parent___children___internal___owner'
+  | 'parent___children___internal___type'
+  | 'parent___internal___content'
+  | 'parent___internal___contentDigest'
+  | 'parent___internal___description'
+  | 'parent___internal___fieldOwners'
+  | 'parent___internal___ignoreType'
+  | 'parent___internal___mediaType'
+  | 'parent___internal___owner'
+  | 'parent___internal___type'
+  | 'children'
+  | 'children___id'
+  | 'children___parent___id'
+  | 'children___parent___parent___id'
+  | 'children___parent___parent___children'
+  | 'children___parent___children'
+  | 'children___parent___children___id'
+  | 'children___parent___children___children'
+  | 'children___parent___internal___content'
+  | 'children___parent___internal___contentDigest'
+  | 'children___parent___internal___description'
+  | 'children___parent___internal___fieldOwners'
+  | 'children___parent___internal___ignoreType'
+  | 'children___parent___internal___mediaType'
+  | 'children___parent___internal___owner'
+  | 'children___parent___internal___type'
+  | 'children___children'
+  | 'children___children___id'
+  | 'children___children___parent___id'
+  | 'children___children___parent___children'
+  | 'children___children___children'
+  | 'children___children___children___id'
+  | 'children___children___children___children'
+  | 'children___children___internal___content'
+  | 'children___children___internal___contentDigest'
+  | 'children___children___internal___description'
+  | 'children___children___internal___fieldOwners'
+  | 'children___children___internal___ignoreType'
+  | 'children___children___internal___mediaType'
+  | 'children___children___internal___owner'
+  | 'children___children___internal___type'
+  | 'children___internal___content'
+  | 'children___internal___contentDigest'
+  | 'children___internal___description'
+  | 'children___internal___fieldOwners'
+  | 'children___internal___ignoreType'
+  | 'children___internal___mediaType'
+  | 'children___internal___owner'
+  | 'children___internal___type'
+  | 'internal___content'
+  | 'internal___contentDigest'
+  | 'internal___description'
+  | 'internal___fieldOwners'
+  | 'internal___ignoreType'
+  | 'internal___mediaType'
+  | 'internal___owner'
+  | 'internal___type'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'publishedAt'
+  | 'skillName'
+  | 'otherskillsId';
+
+export type MicrocmsOtherskillsFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  skillName?: Maybe<StringQueryOperatorInput>;
+  otherskillsId?: Maybe<StringQueryOperatorInput>;
+};
+
+export type MicrocmsOtherskillsGroupConnection = {
+  totalCount: Scalars['Int'];
+  edges: Array<MicrocmsOtherskillsEdge>;
+  nodes: Array<MicrocmsOtherskills>;
+  pageInfo: PageInfo;
+  field: Scalars['String'];
+  fieldValue?: Maybe<Scalars['String']>;
+};
+
+export type MicrocmsOtherskillsSortInput = {
+  fields?: Maybe<Array<Maybe<MicrocmsOtherskillsFieldsEnum>>>;
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>;
+};
+
 export type MicrocmsSkills = Node & {
   id: Scalars['ID'];
   parent?: Maybe<Node>;
@@ -2209,12 +2391,14 @@ export type Query = {
   allSite: SiteConnection;
   imageSharp?: Maybe<ImageSharp>;
   allImageSharp: ImageSharpConnection;
-  microcmsSkills?: Maybe<MicrocmsSkills>;
-  allMicrocmsSkills: MicrocmsSkillsConnection;
+  microcmsOtherskills?: Maybe<MicrocmsOtherskills>;
+  allMicrocmsOtherskills: MicrocmsOtherskillsConnection;
   microcmsHobbies?: Maybe<MicrocmsHobbies>;
   allMicrocmsHobbies: MicrocmsHobbiesConnection;
   microcmsCareers?: Maybe<MicrocmsCareers>;
   allMicrocmsCareers: MicrocmsCareersConnection;
+  microcmsSkills?: Maybe<MicrocmsSkills>;
+  allMicrocmsSkills: MicrocmsSkillsConnection;
   microcmsUserinfo?: Maybe<MicrocmsUserinfo>;
   allMicrocmsUserinfo: MicrocmsUserinfoConnection;
   siteBuildMetadata?: Maybe<SiteBuildMetadata>;
@@ -2393,7 +2577,7 @@ export type QueryAllImageSharpArgs = {
 };
 
 
-export type QueryMicrocmsSkillsArgs = {
+export type QueryMicrocmsOtherskillsArgs = {
   id?: Maybe<StringQueryOperatorInput>;
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
@@ -2402,15 +2586,13 @@ export type QueryMicrocmsSkillsArgs = {
   updatedAt?: Maybe<DateQueryOperatorInput>;
   publishedAt?: Maybe<DateQueryOperatorInput>;
   skillName?: Maybe<StringQueryOperatorInput>;
-  skillLevel?: Maybe<IntQueryOperatorInput>;
-  skillDetail?: Maybe<StringQueryOperatorInput>;
-  skillsId?: Maybe<StringQueryOperatorInput>;
+  otherskillsId?: Maybe<StringQueryOperatorInput>;
 };
 
 
-export type QueryAllMicrocmsSkillsArgs = {
-  filter?: Maybe<MicrocmsSkillsFilterInput>;
-  sort?: Maybe<MicrocmsSkillsSortInput>;
+export type QueryAllMicrocmsOtherskillsArgs = {
+  filter?: Maybe<MicrocmsOtherskillsFilterInput>;
+  sort?: Maybe<MicrocmsOtherskillsSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -2460,6 +2642,29 @@ export type QueryMicrocmsCareersArgs = {
 export type QueryAllMicrocmsCareersArgs = {
   filter?: Maybe<MicrocmsCareersFilterInput>;
   sort?: Maybe<MicrocmsCareersSortInput>;
+  skip?: Maybe<Scalars['Int']>;
+  limit?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryMicrocmsSkillsArgs = {
+  id?: Maybe<StringQueryOperatorInput>;
+  parent?: Maybe<NodeFilterInput>;
+  children?: Maybe<NodeFilterListInput>;
+  internal?: Maybe<InternalFilterInput>;
+  createdAt?: Maybe<DateQueryOperatorInput>;
+  updatedAt?: Maybe<DateQueryOperatorInput>;
+  publishedAt?: Maybe<DateQueryOperatorInput>;
+  skillName?: Maybe<StringQueryOperatorInput>;
+  skillLevel?: Maybe<IntQueryOperatorInput>;
+  skillDetail?: Maybe<StringQueryOperatorInput>;
+  skillsId?: Maybe<StringQueryOperatorInput>;
+};
+
+
+export type QueryAllMicrocmsSkillsArgs = {
+  filter?: Maybe<MicrocmsSkillsFilterInput>;
+  sort?: Maybe<MicrocmsSkillsSortInput>;
   skip?: Maybe<Scalars['Int']>;
   limit?: Maybe<Scalars['Int']>;
 };
@@ -3051,6 +3256,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___serviceId'
   | 'pluginCreator___pluginOptions___endpoint'
   | 'pluginCreator___pluginOptions___format'
+  | 'pluginCreator___pluginOptions___readAll'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___nodeAPIs'
   | 'pluginCreator___browserAPIs'
@@ -3260,6 +3466,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___serviceId'
   | 'pluginOptions___endpoint'
   | 'pluginOptions___format'
+  | 'pluginOptions___readAll'
   | 'pluginOptions___pathCheck'
   | 'nodeAPIs'
   | 'browserAPIs'
@@ -3397,6 +3604,7 @@ export type SitePluginPluginOptions = {
   serviceId?: Maybe<Scalars['String']>;
   endpoint?: Maybe<Scalars['String']>;
   format?: Maybe<Scalars['String']>;
+  readAll?: Maybe<Scalars['Boolean']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
 };
 
@@ -3422,6 +3630,7 @@ export type SitePluginPluginOptionsFilterInput = {
   serviceId?: Maybe<StringQueryOperatorInput>;
   endpoint?: Maybe<StringQueryOperatorInput>;
   format?: Maybe<StringQueryOperatorInput>;
+  readAll?: Maybe<BooleanQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -3512,6 +3721,11 @@ export type OverviewQuery = { UserInfo: { edges: Array<{ node: (
         Pick<MicrocmsUserinfo, 'id' | 'name' | 'address' | 'birthday' | 'email' | 'greetingText' | 'role'>
         & { avatar?: Maybe<Pick<MicrocmsUserinfoAvatar, 'url'>> }
       ) }> }, Skills: { edges: Array<{ node: Pick<MicrocmsSkills, 'id' | 'skillName' | 'skillLevel' | 'skillDetail'> }> }, Careers: { edges: Array<{ node: Pick<MicrocmsCareers, 'id' | 'fromDate' | 'toDate' | 'careerName' | 'role' | 'description'> }> } };
+
+export type SkillPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type SkillPageQuery = { Skills: { edges: Array<{ node: Pick<MicrocmsSkills, 'id' | 'skillName' | 'skillLevel' | 'skillDetail'> }> }, OtherSkills: { edges: Array<{ node: Pick<MicrocmsOtherskills, 'id' | 'skillName'> }> } };
 
 export type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

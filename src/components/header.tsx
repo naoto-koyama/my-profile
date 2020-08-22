@@ -25,8 +25,10 @@ const Header: React.FC<Props> = ({ title }) => {
       className={isTopScroll ? styles.headerTopPosition : styles.headerScrolled}
     >
       <h1 className={styles.title}>
-        <span className={styles.title__my}>My</span>
-        <span className={styles.title__profile}>Profile</span>
+        <Link to={'/'}>
+          <span className={styles.title__my}>My</span>
+          <span className={styles.title__profile}>Profile</span>
+        </Link>
       </h1>
       <nav>
         <ul className={styles.navigationList}>

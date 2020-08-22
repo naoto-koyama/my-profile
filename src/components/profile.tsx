@@ -23,7 +23,6 @@ const Profile: React.FC<Props> = ({ profileData, isPositionRelative }) => {
     return today < birthdayOfThisYear ? yearDiff - 1 : yearDiff
   }
 
-  console.log(styles)
   return (
     <div
       className={`${styles.profileInfoWrapper} ${
