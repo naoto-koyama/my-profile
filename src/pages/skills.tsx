@@ -16,7 +16,7 @@ const SkillsPage: React.FC<Props> = ({ data }) => {
   return (
     <Layout title="SKILLS">
       <SEO title="SKILLS" />
-      <h2 className={styles.title}>SKILLS</h2>
+      <h2 className={`${styles.title} ${styles.skill}`}>SKILLS</h2>
       <div className={styles.skillsWrapper}>
         <ul className={styles.skillList}>
           {skills.map(skill => {
