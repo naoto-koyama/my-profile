@@ -8,4 +8,8 @@
 .time-line-wrapper {
   margin: 0 auto 32px;
   width: 77%;
+
+  @media(max-width: 749px) {
+    width: 100%;
+  }
 }
