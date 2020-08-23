@@ -5,6 +5,7 @@ const styles = require('./sns-list.module.scss')
 
 type Props = {
   color: string
+  children?: never
 }
 
 const SnsList: React.FC<Props> = ({ color }) => {

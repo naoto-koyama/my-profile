@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 type Props = {
   filename: string
   alt: string
+  children?: never
 }
 
 const Image: React.FC<Props> = ({ filename, alt }) => {

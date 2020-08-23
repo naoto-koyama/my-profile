@@ -4,6 +4,7 @@ const styles = require('./career-card.module.scss')
 
 type Props = {
   career: CareerType
+  children?: never
 }
 
 const CareerCard: React.FC<Props> = ({ career }) => {

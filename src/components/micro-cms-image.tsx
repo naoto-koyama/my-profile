@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 type Props = {
   url?: string | null
   alt: string
+  children?: never
 }
 
 const MicroCmsImage: React.FC<Props> = ({ url, alt }) => {

@@ -8,6 +8,7 @@ const styles = require('./profile.module.scss')
 type Props = {
   profileData: UserinfoType
   isPositionRelative?: boolean
+  children?: never
 }
 
 const Profile: React.FC<Props> = ({ profileData, isPositionRelative }) => {

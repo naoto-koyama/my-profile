@@ -6,6 +6,7 @@ const styles = require('./header.module.scss')
 
 type Props = {
   title: string
+  children?: never
 }
 
 const Header: React.FC<Props> = ({ title }) => {

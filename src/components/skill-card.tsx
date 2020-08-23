@@ -4,6 +4,7 @@ const styles = require('./skill-card.module.scss')
 
 type Props = {
   skill: SkillType
+  children?: never
 }
 
 const SkillCard: React.FC<Props> = ({ skill }) => {

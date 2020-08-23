@@ -37,6 +37,7 @@ const reducer: React.Reducer<HobbyCardState, HobbyCardAction> = (
 
 type Props = {
   hobby: HobbyType
+  children?: never
 }
 
 const HobbyCard: React.FC<Props> = ({ hobby }) => {
