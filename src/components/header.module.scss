@@ -1,5 +1,5 @@
 .header {
-  width: 100%;
+  width: 100vw;
   padding: 12px 52px 8px;
   @include flexbox(nowrap, center, space-between);
   border-radius: 0px 4px 4px 0px;
@@ -8,6 +8,10 @@
   z-index: 2;
   transition: transform 400ms ease-out 100ms, padding 300ms ease-out, box-shadow 300ms ease-out, background 300ms ease-out;
   transform: translate(0, 0);
+
+  @media(max-width: 749px) {
+    padding: 12px 20px 8px;
+  }
 
   &.side-menu-open::after {
     content: '';
