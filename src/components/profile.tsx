@@ -3,6 +3,7 @@ import MicroCmsImage from './micro-cms-image'
 import Balloon from './balloon'
 import SnsList from './sns-list'
 import { UserinfoType } from '../../types/user-info-type'
+import Image from './image'
 const styles = require('./profile.module.scss')
 
 type Props = {
@@ -32,7 +33,11 @@ const Profile: React.FC<Props> = ({ profileData, isPositionRelative }) => {
     >
       <div className={styles.profileInfoContent}>
         <div className={styles.profileInfoContent__avatar}>
-          {/* TODO: HireMeの画像をif文で差し込む */}
+          <Image
+            filename={'hireme.png'}
+            alt={'hireme'}
+            className={styles.hireme}
+          ></Image>
           <MicroCmsImage
             url={profileData.avatar?.url}
             alt="avatar"
