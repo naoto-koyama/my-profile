@@ -2,10 +2,10 @@ require('dotenv').config()
 
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Profile of Naoto Koyama',
     description:
-      'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+      'Welcome to Naoto Koyama Profile. 児山直人のプロフィールサイトへようこそ',
+    author: '@naoto.koyama',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
