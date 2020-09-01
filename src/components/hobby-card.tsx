@@ -1,39 +1,9 @@
 import * as React from 'react'
-import { useReducer } from 'react'
+import { useState } from 'react'
 import { HobbyType } from '../../types/hobby-type'
 import MicroCmsImage from './micro-cms-image'
 import { FaChevronCircleLeft, FaChevronCircleRight } from 'react-icons/fa'
 const styles = require('./hobby-card.module.scss')
-
-interface HobbyCardState {
-  selectedImageIndex: number
-}
-
-interface HobbyCardAction {
-  type: ActionType
-  payload: HobbyCardState
-}
-
-enum ActionType {
-  SET_IMAGE_INDEX = 'SET_IMAGE_INDEX',
-}
-
-const initialState = { selectedImageIndex: 0 }
-
-const reducer: React.Reducer<HobbyCardState, HobbyCardAction> = (
-  state: HobbyCardState,
-  action: HobbyCardAction
-) => {
-  switch (action.type) {
-    case ActionType.SET_IMAGE_INDEX:
-      return {
-        ...state,
-        selectedImageIndex: action.payload.selectedImageIndex,
-      }
-    default:
-      throw new Error()
-  }
-}
 
 type Props = {
   hobby: HobbyType
@@ -47,34 +17,18 @@ const HobbyCard: React.FC<Props> = ({ hobby }) => {
     _image && _image.image && _image.image.url ? _image.image.url : 'dummy.png'
   )
 
-  const [state, dispatch] = useReducer(reducer, initialState)
-  const clickImageIcon = (value: number): void => {
-    dispatch({
-      type: ActionType.SET_IMAGE_INDEX,
-      payload: { ...state, selectedImageIndex: value },
-    })
-  }
+  const [selectedImageIndex, setImageIndex] = useState(0)
 
   const clickPrevIcon = (): void => {
-    const value =
-      state.selectedImageIndex === 0
-        ? imageCount - 1
-        : state.selectedImageIndex - 1
-    dispatch({
-      type: ActionType.SET_IMAGE_INDEX,
-      payload: { ...state, selectedImageIndex: value },
-    })
+    selectedImageIndex === 0
+      ? setImageIndex(imageCount - 1)
+      : setImageIndex(selectedImageIndex - 1)
   }
 
   const clickNextIcon = (): void => {
-    const value =
-      state.selectedImageIndex === imageCount - 1
-        ? 0
-        : state.selectedImageIndex + 1
-    dispatch({
-      type: ActionType.SET_IMAGE_INDEX,
-      payload: { ...state, selectedImageIndex: value },
-    })
+    selectedImageIndex === imageCount - 1
+      ? setImageIndex(0)
+      : setImageIndex(selectedImageIndex + 1)
   }
 
   return (
@@ -85,7 +39,7 @@ const HobbyCard: React.FC<Props> = ({ hobby }) => {
             return (
               <li
                 className={`${styles.imageList__item} ${
-                  index === state.selectedImageIndex ? styles.active : ''
+                  index === selectedImageIndex ? styles.active : ''
                 }`}
                 key={url}
               >
@@ -112,9 +66,9 @@ const HobbyCard: React.FC<Props> = ({ hobby }) => {
               <li
                 key={index}
                 className={`${styles.imageIconList__item} ${
-                  index !== state.selectedImageIndex ? styles.notActive : ''
+                  index !== selectedImageIndex ? styles.notActive : ''
                 }`}
-                onClick={(): void => clickImageIcon(index)}
+                onClick={(): void => setImageIndex(index)}
               ></li>
             )
           })}
