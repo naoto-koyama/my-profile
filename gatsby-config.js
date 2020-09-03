@@ -97,5 +97,12 @@ module.exports = {
         readAll: true,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Fredoka One`, `Roboto`, `Futura`],
+        display: 'swap',
+      },
+    },
   ],
 }
