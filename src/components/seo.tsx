@@ -74,14 +74,16 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }: Props) => {
   const propMeta: metaType = defaultMeta.concat(meta || [])
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={defaultMeta.concat(propMeta)}
-    />
+    <>
+      <Helmet
+        htmlAttributes={{
+          lang,
+        }}
+        title={title}
+        titleTemplate={`%s | ${site.siteMetadata.title}`}
+        meta={defaultMeta.concat(propMeta)}
+      />
+    </>
   )
 }
 

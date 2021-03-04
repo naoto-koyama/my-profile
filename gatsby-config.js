@@ -104,5 +104,11 @@ module.exports = {
         display: 'swap',
       },
     },
+    {
+      resolve: "gatsby-plugin-google-analytics",
+      options: {
+        trackingId: process.env.GA_TRACKING_ID,
+      }
+    },
   ],
 }
